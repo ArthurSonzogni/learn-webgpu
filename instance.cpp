@@ -1,5 +1,6 @@
 #include "instance.hpp"
 #include <glfw3webgpu.h>
+#include "webgpu-release.h"
 
 Instance::Instance() {
   WGPUInstanceDescriptor options = {
@@ -8,4 +9,6 @@ Instance::Instance() {
   instance_ = wgpuCreateInstance(&options);
 }
 
-Instance::~Instance() {}
+Instance::~Instance() {
+  wgpuInstanceRelease(instance_);
+}

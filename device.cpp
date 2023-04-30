@@ -1,6 +1,7 @@
 #include "device.hpp"
-#include <iostream>
 #include <cassert>
+#include <iostream>
+#include "webgpu-release.h"
 
 WGPUDevice requestDevice(const WGPUAdapter& adapter,
                          WGPUDeviceDescriptor const* descriptor) {
@@ -53,4 +54,6 @@ Device::Device(const WGPUAdapter& adapter) {
                                        nullptr /* pUserData */);
 }
 
-Device::~Device() {}
+Device::~Device() {
+  wgpuDeviceRelease(device_);
+}

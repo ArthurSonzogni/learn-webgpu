@@ -1,4 +1,5 @@
-#include "swap_chain.hpp"
+#include "swapchain.hpp"
+
 #include "webgpu-release.h"
 
 SwapChain::SwapChain(const WGPUDevice& device, const WGPUSurface& surface, const WGPUAdapter& adapter):

@@ -40,8 +40,8 @@ add_executable(App
   main.cpp
   window.cpp
   window.hpp
-  swap_chain.cpp
-  swap_chain.hpp
+  swapchain.cpp
+  swapchain.hpp
   )
 target_link_libraries(App PRIVATE glfw)
 target_link_libraries(App PRIVATE webgpu)
