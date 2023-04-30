@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 project(
   LearnWebGPU
   VERSION 0.1.0
-  LANGUAGES CXX
+  LANGUAGES CXX C
   )
 
 include(FetchContent)
@@ -19,15 +19,24 @@ FetchContent_Declare(
   FIND_PACKAGE_ARGS NAMES webgpu
 )
 
+# Include https://github.com/eliemichel/glfw3webgpu
+FetchContent_Declare(glfw3webgpu
+  GIT_REPOSITORY https://github.com/eliemichel/glfw3webgpu
+  GIT_TAG        v1.0.1
+  FIND_PACKAGE_ARGS NAMES glfw3webgpu
+  )
+
 FetchContent_MakeAvailable(glfw3)
 FetchContent_MakeAvailable(webgpu)
+FetchContent_MakeAvailable(glfw3webgpu)
 
 add_executable(App main.cpp)
 target_link_libraries(App PRIVATE glfw)
 target_link_libraries(App PRIVATE webgpu)
+target_link_libraries(App PRIVATE glfw3webgpu)
 
 set_target_properties(App PROPERTIES
-  CXX_STANDARD 17
+  CXX_STANDARD 20
   COMPILE_WARNING_AS_ERROR ON
   )
 
