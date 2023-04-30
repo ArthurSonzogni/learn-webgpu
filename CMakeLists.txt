@@ -30,7 +30,17 @@ FetchContent_MakeAvailable(glfw3)
 FetchContent_MakeAvailable(webgpu)
 FetchContent_MakeAvailable(glfw3webgpu)
 
-add_executable(App main.cpp)
+add_executable(App 
+  adapter.cpp
+  adapter.hpp
+  device.cpp
+  device.hpp
+  instance.cpp
+  instance.hpp
+  main.cpp
+  window.cpp
+  window.hpp
+  )
 target_link_libraries(App PRIVATE glfw)
 target_link_libraries(App PRIVATE webgpu)
 target_link_libraries(App PRIVATE glfw3webgpu)
