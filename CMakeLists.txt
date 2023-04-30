@@ -40,6 +40,8 @@ add_executable(App
   main.cpp
   window.cpp
   window.hpp
+  swap_chain.cpp
+  swap_chain.hpp
   )
 target_link_libraries(App PRIVATE glfw)
 target_link_libraries(App PRIVATE webgpu)
@@ -47,7 +49,7 @@ target_link_libraries(App PRIVATE glfw3webgpu)
 
 set_target_properties(App PROPERTIES
   CXX_STANDARD 20
-  COMPILE_WARNING_AS_ERROR ON
+  COMPILE_WARNING_AS_ERROR OFF
   )
 
 if (MSVC)

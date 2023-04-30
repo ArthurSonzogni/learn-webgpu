@@ -41,7 +41,7 @@ Device::Device(const WGPUAdapter& adapter) {
           },
   };
 
-  WGPUDevice device = requestDevice(adapter, &deviceDesc);
+  device_ = requestDevice(adapter, &deviceDesc);
 
   auto onDeviceError = [](WGPUErrorType /*type*/, char const* message,
                           void* /* pUserData */) {
@@ -49,7 +49,7 @@ Device::Device(const WGPUAdapter& adapter) {
       std::cout << " (" << message << ")";
     std::cout << std::endl;
   };
-  wgpuDeviceSetUncapturedErrorCallback(device, onDeviceError,
+  wgpuDeviceSetUncapturedErrorCallback(device_, onDeviceError,
                                        nullptr /* pUserData */);
 }
 
