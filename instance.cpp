@@ -1,5 +1,4 @@
 #include "instance.hpp"
-#include <glfw3webgpu.h>
 #include "webgpu-release.h"
 
 Instance::Instance() {
