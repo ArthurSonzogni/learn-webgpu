@@ -6,15 +6,25 @@ project(
   )
 
 include(FetchContent)
+
 FetchContent_Declare(glfw3
   GIT_REPOSITORY https://github.com/glfw/glfw
   GIT_TAG        7482de6071d21db77a7236155da44c172a7f6c9e
   FIND_PACKAGE_ARGS NAMES glfw3
   )
+FetchContent_Declare(
+  webgpu
+  GIT_REPOSITORY https://github.com/eliemichel/WebGPU-distribution
+  GIT_TAG        wgpu-v0.1.0
+  FIND_PACKAGE_ARGS NAMES webgpu
+)
+
 FetchContent_MakeAvailable(glfw3)
+FetchContent_MakeAvailable(webgpu)
 
 add_executable(App main.cpp)
 target_link_libraries(App PRIVATE glfw)
+target_link_libraries(App PRIVATE webgpu)
 
 set_target_properties(App PROPERTIES
   CXX_STANDARD 17
